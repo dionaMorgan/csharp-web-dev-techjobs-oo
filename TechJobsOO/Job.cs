@@ -43,53 +43,32 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            string output;
-            output = $"ID: {Id}\n";
-
             if (Name == "")
             {
-                output += "Name: Data Not Available\n";
+                Name = "Data Not Available";
             }
-            else
-            {
-                output += $"Name: {Name}\n";
-            }
+            
             if (EmployerName.Value == "")
             {
-                output += "Employer: Data Not Available\n";
+                EmployerName.Value = "Data Not Available";
             }
-            else
-            {
-                output += $"Employer: {EmployerName.Value}\n";
-            }
+            
             if (EmployerLocation.Value == "")
             {
-                output += "Location: Data Not Available\n";
+                EmployerLocation.Value = "Data Not Available";
             }
-            else
-            {
-                output += $"Location: {EmployerLocation.Value}\n";
-            }
+           
             if (JobType.Value == "")
             {
-                output += "Position Type: Data Not Available\n";
+                JobType.Value = "Data Not Available";
             }
-            else
-            {
-                output += $"Position Type: {JobType.Value}\n";
-            }
+            
             if (JobCoreCompetency.Value == "")
             {
-                output += "Core Competency: Data Not Available\n";
+                JobCoreCompetency.Value = "Data Not Available";
             }
-            else
-            {
-                output += $"Core Competency: {JobCoreCompetency.Value}\n";
-            }
-
-            return output;
-
-            //return $"ID: {Id} \nName: {Name} \nEmployer: {EmployerName.Value} \nLocation: {EmployerLocation.Value} \nPosition Type: {JobType.Value} \nCore Competency: {JobCoreCompetency}";
+        
+            return $"ID: {Id} \nName: {Name} \nEmployer: {EmployerName.Value} \nLocation: {EmployerLocation.Value} \nPosition Type: {JobType.Value} \nCore Competency: {JobCoreCompetency.Value}";
         }
 
 

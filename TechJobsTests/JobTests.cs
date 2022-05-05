@@ -39,7 +39,7 @@ namespace TechJobsTests
             Job test_job1 = new Job("Web Developer", new Employer("Google"), new Location("Atlanta"), new PositionType("Entry Level"), new CoreCompetency("Communication"));
             Job test_job2 = new Job("Web Developer", new Employer("Google"), new Location("Atlanta"), new PositionType("Entry Level"), new CoreCompetency("Communication"));
 
-            Assert.IsFalse(test_job1 == test_job2);
+            Assert.IsFalse(test_job1.Equals(test_job2));
         }
 
         [TestMethod]
@@ -47,9 +47,20 @@ namespace TechJobsTests
         {
             Job test_job = new Job("Web Developer", new Employer("Google"), new Location("Atlanta"), new PositionType("Entry Level"), new CoreCompetency("Communication"));
             string test_input = test_job.ToString();
-            string test_output = $"ID: {test_job.Id} \nName: {test_job.Name} \nEmployer: {test_job.EmployerName.Value} \nLocation: {test_job.EmployerLocation.Value} \nPosition Type: {test_job.JobType.Value} \nCore Competency: {test_job.JobCoreCompetency}";
+            string test_output = $"ID: {test_job.Id} \nName: {test_job.Name} \nEmployer: {test_job.EmployerName.Value} \nLocation: {test_job.EmployerLocation.Value} \nPosition Type: {test_job.JobType.Value} \nCore Competency: {test_job.JobCoreCompetency.Value}";
 
             Assert.AreEqual(test_output, test_input);
         }
+
+        [TestMethod]
+        public void TestNoDataToStringMethod()
+        {
+            Job test_job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+            string test_input = test_job.ToString();
+            string test_output = $"ID: {test_job.Id} \nName: Data Not Available \nEmployer: Data Not Available \nLocation: Data Not Available \nPosition Type: Data Not Available \nCore Competency: Data Not Available";
+
+            Assert.AreEqual(test_output, test_input);
+        }
+
     }
 }
